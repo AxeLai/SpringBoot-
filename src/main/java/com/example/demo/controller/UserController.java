@@ -14,7 +14,7 @@ import java.util.List;
  * @date 2019-04-18 14:59
  */
 @RestController
-@Api(value = "UserController",description = "用户端")
+@Api(value = "UserController",description = "用户端123")
 public class UserController {
 
     @Autowired
