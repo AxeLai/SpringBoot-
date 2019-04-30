@@ -72,8 +72,20 @@
 			<artifactId>springfox-swagger-ui</artifactId>
 			<version>${swagger.version}</version>
 		</dependency>
-
 		<!-- end swagger相关 -->
+
+		<!-- websocket -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-websocket</artifactId>
+		</dependency>
+
+		<!--spring-boot-security安全框架SpringSecurity-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+
 
 	</dependencies>
 
