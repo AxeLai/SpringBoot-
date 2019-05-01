@@ -15,9 +15,21 @@ public class User implements Comparable<User> {
      */
     private String name;
     /**
+     * 密码
+     */
+    private String pwd;
+    /**
      * 年龄
      */
     private String sex;
+
+    public String getPwd() {
+        return pwd;
+    }
+
+    public void setPwd(String pwd) {
+        this.pwd = pwd;
+    }
 
     public int getId() {
         return id;
