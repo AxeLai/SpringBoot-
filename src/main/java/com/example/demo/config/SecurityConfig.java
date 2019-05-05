@@ -1,8 +1,11 @@
 package com.example.demo.config;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -13,7 +16,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
  */
 @Configuration
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
-
+    @Autowired
+    private PasswordEncoder passwordEncoder;
     @Bean
     public PasswordEncoder passwordEncoder(){
         //当然，如果你有自己的加密方法，这个方法就写自己的加密方法好了
@@ -47,5 +51,19 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //                .and()
 //                .logout()
 //                .permitAll();
+    }
+    //4
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        auth
+                .inMemoryAuthentication()
+                .withUser("user1").password(passwordEncoder.encode("123")).roles("USER")//这里两个是分别账号和密码（账号：user1密码：123）
+                .and()
+                .withUser("user2").password(passwordEncoder.encode("123")).roles("USER");//这里两个是分别账号和密码（账号：user2密码：123）
+    }
+    //5忽略静态资源的拦截
+    @Override
+    public void configure(WebSecurity web) throws Exception {
+        web.ignoring().antMatchers("/resources/static/**");
     }
 }

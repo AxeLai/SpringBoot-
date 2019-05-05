@@ -16,6 +16,6 @@ public class IndexPageConfig {
 
     @RequestMapping("/")
     public RedirectView ws() {
-        return new RedirectView("/websocket1.html");
+        return new RedirectView("/pages/chat.html");
     }
 }

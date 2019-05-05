@@ -20,11 +20,18 @@ public class WebSocketConfig extends AbstractWebSocketMessageBrokerConfigurer {
         registry.addEndpoint("/stomp").withSockJS(); //(2),注册一个Stomp的节点（endpoint）,并指定使用SockJS协议。
         //stomp就是websocket的端点，客户端需要注册这个端点进行链接，withSockJS允许客户端利用sockjs进行浏览器兼容性处理
     }
+//    @Override
+//    public void configureMessageBroker(MessageBrokerRegistry registry) {
+//        registry.enableSimpleBroker("/topic");//(3),配置消息代理（MessageBroker）。
+//        //设置服务器广播消息的基础路径
+////        registry.setApplicationDestinationPrefixes("/app");//设置客户端订阅消息的基础路径
+//    }
     @Override
     public void configureMessageBroker(MessageBrokerRegistry registry) {
-        registry.enableSimpleBroker("/topic");//(3),配置消息代理（MessageBroker）。
-        //设置服务器广播消息的基础路径
-//        registry.setApplicationDestinationPrefixes("/app");//设置客户端订阅消息的基础路径
+        //设置一对一聊天室的基础路径
+        registry.enableSimpleBroker("/queue","/topic"); //2
+
     }
+
 }
 
