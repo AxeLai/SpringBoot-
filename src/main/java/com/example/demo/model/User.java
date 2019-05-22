@@ -1,10 +1,14 @@
 package com.example.demo.model;
 
+import lombok.Getter;
+import lombok.Setter;
+
 /**
  * @author AxeLai
  * @date 2019-04-22 18:47
  */
-
+@Getter
+@Setter
 public class User implements Comparable<User> {
     /**
      * 编号
@@ -23,37 +27,6 @@ public class User implements Comparable<User> {
      */
     private String sex;
 
-    public String getPwd() {
-        return pwd;
-    }
-
-    public void setPwd(String pwd) {
-        this.pwd = pwd;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getSex() {
-        return sex;
-    }
-
-    public void setSex(String sex) {
-        this.sex = sex;
-    }
 
     public User(int id, String name, String sex) {
         this.id = id;

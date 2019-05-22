@@ -1,9 +1,9 @@
 package com.example.demo;
 
+import com.example.demo.config.mapUtils.GaodeApi;
 import com.example.demo.model.User;
 
 import java.util.*;
-import java.util.function.Consumer;
 
 import static java.util.Comparator.comparingLong;
 import static java.util.stream.Collectors.collectingAndThen;
@@ -15,10 +15,10 @@ import static java.util.stream.Collectors.toCollection;
  */
 public class MainTest {
     public static void main(String[] args) {
-        List<String> a1 = Arrays.asList("a", "b", "c");
-        a1.forEach(MainTest::printValur);
-        Consumer<String> consumer = MainTest::printValur;
-        a1.forEach(x -> consumer.accept(x));
+//        List<String> a1 = Arrays.asList("a", "b", "c");
+//        a1.forEach(MainTest::printValur);
+//        Consumer<String> consumer = MainTest::printValur;
+//        a1.forEach(x -> consumer.accept(x));
     }
 
     public static void printValur(String str) {
